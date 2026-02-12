@@ -61,14 +61,6 @@ object Build : BuildType({
             runnerArgs = "-Dmaven.test.failure.ignore=true"
             userSettingsSelection = "settings.xml"
         }
-        maven {
-            name = "deploy"
-            id = "deploy"
-            enabled = false
-            goals = "mvn -s /path/to/settings.xml -X deploy"
-            runnerArgs = "-Dmaven.test.failure.ignore=true"
-            userSettingsSelection = "settings.xml"
-        }
     }
 
     features {

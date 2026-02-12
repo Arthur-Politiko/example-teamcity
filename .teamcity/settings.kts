@@ -1,7 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -40,20 +39,6 @@ object Build : BuildType({
     }
 
     steps {
-        script {
-            name = "diag"
-            id = "diag"
-            enabled = false
-            scriptContent = """
-                echo "=== Проверка settings.xml ==="
-                ls -la ~/.m2/
-                cat ~/.m2/settings.xml 2>/dev/null || echo "settings.xml не найден"
-                
-                echo "=== Проверка переменных ==="
-                env | grep MAVEN
-                env | grep M2
-            """.trimIndent()
-        }
         maven {
             name = "clean deploy"
             id = "Maven2"

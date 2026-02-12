@@ -18,5 +18,8 @@ public class Welcomer{
 	public String sayReply(){
 		return "Someone wants to hear hunter";
 	}
+	public String scareMe(){
+		return "Booo !!!";
+	}
 
 }

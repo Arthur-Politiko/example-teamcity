@@ -48,7 +48,7 @@ object Build : BuildType({
             id = "Maven2"
 
             conditions {
-                contains("teamcity.build.branch", "master")
+                equals("teamcity.build.branch", "master")
             }
             goals = "clean deploy"
             runnerArgs = "-X -e -Dmaven.test.failure.ignore=true"
